@@ -16,6 +16,7 @@ USERS_PER_CLIENT=1
 HATCH_RATE=1
 RESOURCE_GROUP=""
 AZURE_STORAGE_ACCOUNT=""
+SUBSCRIPTION_ID=""
 EOF
 	echo "Enviroment file not detected."
 	echo "Please configure values for your environment in the created .env file"
