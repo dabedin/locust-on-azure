@@ -33,6 +33,7 @@ fi
 echo "starting"
 cat << EOF > log.txt
 EOF
+
 echo "setting subscription id: $SUBSCRIPTION_ID" | tee -a log.txt
 az account set --subscription $SUBSCRIPTION_ID \
 	-o json >> log.txt	
