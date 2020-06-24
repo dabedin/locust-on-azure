@@ -25,6 +25,7 @@ EOF
 	echo "HATCH_RATE: How many new users will be created per second per locust client"
 	echo "HOST: REST Endpoint to test"
 	echo "RESOURCE_GROUP: Resource group where Locust will be deployed"
+	echo "SUBSCRIPTION_ID: SubscriptionId for the Resource Group"
 	echo "AZURE_STORAGE_ACCOUNT: Storage account name that will be created to host the locust file"
 	exit 1
 fi
@@ -32,6 +33,9 @@ fi
 echo "starting"
 cat << EOF > log.txt
 EOF
+echo "setting subscription id: $SUBSCRIPTION_ID" | tee -a log.txt
+az account set --subscription $SUBSCRIPTION_ID \
+	-o json >> log.txt	
 
 CLIENT_IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 echo "client Ip address: $CLIENT_IP" | tee -a log.txt
